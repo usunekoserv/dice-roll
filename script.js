@@ -5,13 +5,13 @@ import { getDatabase, ref, push, onChildAdded, remove } from "https://www.gstati
 
 // Firebase Config
 const firebaseConfig = {
-    apiKey: "AIzaSyAT5QpuyWSVcLekfn1xzyGxQ1LP_9yt6Go",
-    authDomain: "trpgdiceroll-5a41d.firebaseapp.com",
-    databaseURL: "https://trpgdiceroll-5a41d-default-rtdb.firebaseio.com",
-    projectId: "trpgdiceroll-5a41d",
-    storageBucket: "trpgdiceroll-5a41d.firebasestorage.app",
-    messagingSenderId: "1096525112224",
-    appId: "1:1096525112224:web:c4b5a9af058258705a3ac5"
+    apiKey: "***",
+    authDomain: "***",
+    databaseURL: "***",
+    projectId: "***",
+    storageBucket: "***",
+    messagingSenderId: "***",
+    appId: "***"
 };
 
 // Firebase 初期化（多重初期化を防止）
