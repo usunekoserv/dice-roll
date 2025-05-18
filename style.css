@@ -1,0 +1,193 @@
+/* style.css */
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background: url('bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #2c6510;
+    /* ビリヤード台の緑 */
+}
+
+#rollResults {
+    padding: 20px;
+    min-height: 80vh;
+    overflow-y: auto;
+}
+
+.result {
+    background: linear-gradient(135deg, #f8f8f8, #e6e6e6);
+    /* 乳白色のグラデーション */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 15px 0;
+    /* 3倍のマージン */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+    /* 文字サイズを2割大きく */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* 2番目以降のロール結果をより明確に暗くする */
+.result:nth-child(n+2) {
+    background: linear-gradient(135deg, #c0c0c0, #b0b0b0);
+    /* さらに暗いグラデーション */
+}
+
+.result .username {
+    font-size: 1em;
+    color: #555;
+}
+
+.result .rollType {
+    font-size: 1.2em;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #d0a851;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.result .total {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #000;
+}
+
+#rollButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 78px;
+    /* 3割大きく */
+    height: 78px;
+    border-radius: 50%;
+    background: url('diced.svg') no-repeat center center;
+    background-size: contain;
+    color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
+    cursor: pointer;
+    z-index: 100;
+}
+
+#rollResults .result:first-child {
+    opacity: 1;
+}
+
+#modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+#modalContent {
+    z-index: 101;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#modalContent select {
+    width: 45%;
+    padding: 10px;
+    margin: 5px;
+    font-size: 1.2em;
+    display: inline-block;
+}
+
+#modalContent button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 1.5em;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#modalClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 2.4em;
+    /* 2倍の大きさ */
+}
+
+#nameModal {
+    z-index: 100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+}
+
+/* 名前入力モーダルの見出しを30%小さくする */
+#nameModal h2 {
+    font-size: 1.17em;
+}
+
+/* 入力欄のフォントサイズを2倍にする */
+#nameModalContent input {
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+/* 決定ボタンのフォントサイズを2倍にし、入力欄とのマージンを確保 */
+#nameModalContent button {
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 1.5em;
+    margin-top: 15px;
+}
+
+#changeName {
+    z-index: 98;
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: 5px;
+    background-color: #2c6510;
+}
+
+
+/* スライドインアニメーションは jQuery で実行するので CSS から削除 */
+#rollResults .result {
+    opacity: 1;
+    transform: none;
+}

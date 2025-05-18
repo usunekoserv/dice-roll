@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TRPG ダイスロール</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSSファイルを読み込む -->
+    <link rel="stylesheet" href="style.css?v12">
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getDatabase } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAT5QpuyWSVcLekfn1xzyGxQ1LP_9yt6Go",
+            authDomain: "trpgdiceroll-5a41d.firebaseapp.com",
+            databaseURL: "https://trpgdiceroll-5a41d-default-rtdb.firebaseio.com/",
+            projectId: "trpgdiceroll-5a41d",
+            storageBucket: "trpgdiceroll-5a41d.appspot.com",
+            messagingSenderId: "1096525112224",
+            appId: "1:1096525112224:web:c4b5a9af058258705a3ac5"
+        };
+
+        // Firebase の初期化
+        const app = initializeApp(firebaseConfig);
+        window.firebaseDB = getDatabase(app);
+    </script>
+</head>
+
+<body>
+    <div id="nameModal">
+        <div id="nameModalContent">
+            <h2>名前を入力してください</h2>
+            <input type="text" id="usernameInput" placeholder="あなたの名前">
+            <button id="nameSubmit">決定</button>
+        </div>
+    </div>
+
+    <div id="rollResults"></div>
+
+    <div id="rollButton">🎲</div>
+
+    <div id="modalOverlay">
+        <div id="modalContent">
+            <span id="modalClose">✕</span>
+            <h3>ダイスを振る</h3>
+            <select id="diceCount">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <select id="diceType">
+                <option value="4">D4</option>
+                <option value="6">D6</option>
+                <option value="8">D8</option>
+                <option value="10">D10</option>
+                <option value="12">D12</option>
+                <option value="20">D20</option>
+                <option value="100">D100</option>
+            </select>
+            <button id="rollDice">ロール</button>
+        </div>
+    </div>
+
+    <!-- 🔹 名前を変更するリンクを追加 -->
+    <a id="changeName" href="#">名前を変更する</a>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- 外部JSファイルを読み込む -->
+    <script type="module" src="script.js?v12"></script>
+</body>
+
+</html>
